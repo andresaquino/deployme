@@ -29,9 +29,48 @@ my %option;
 # configuration setup
 my %config;
 
+my ($apname, $appath, $apsuffix);
+
+#
+# FUNCTIONS
+
+# read config file
+sub configfile
+{
+  my $cfgfile = new IO::File;
+  my $data;
+
+  # get name and path of application 
+  ($apname, $appath, $apsuffix) = fileparse($0,".pl");
+
+  # validar que exista el archivo de configuracion o
+  # incluir una conf por defecto...
+  $cfgfile->open("$appath/$apname.rc", O_RDONLY);
+  while ( $data = $cfgfile->getline() )
+  {
+    chomp($data);
+    $data =~ s/^\s+//;
+    $data =~ s/\s+$//;
+
+    if ( $data !~ /^#/ && length($data) > 10 )
+    {
+      my ($var, $value) = split(/\s*=\s*/, $data, 2);
+      $config{$var} = $value;
+    }
+  }
+  #while( my ($k, $v) = each %config ) {
+  #  print "$k = $v\n";
+  #}
+  $cfgfile->close();
+
+}
+
 
 #
 # MAIN
+
+# read config
+configfile();
 
 # read user options
 GetOptions( 'start'         => \$option{'start'},
