@@ -2,3 +2,16 @@ v1.01-rev1
 	Implementar funcionalidad basica, definir opciones y funcionamiento en lo general,
 		primer dommy de la aplicación y verificar los alcances de la misma.
 
+v1.01-rev2
+	Implementar archivo de configuracion
+
+v1.01-rev3
+	Implementar demonio, funcionalidad basica
+
+v1.01-rev4
+	Implementar commit, funcionalidad basica
+
+v1.01-rev5
+	implementar rollback, funcionalidad basica
+
+
