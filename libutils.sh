@@ -3,8 +3,8 @@
 
 # libutils.sh -- library with some util functions
 # =-=
-# (c) 2009 StrategyLabs!
-# Andrés Aquino Morales <andres.aquino@gmail.com>
+# (c) 2010 StrategyLabs!
+# Andres Aquino <andres.aquino@gmail.com>
 # 
 
 #
@@ -57,10 +57,6 @@ set_environment () {
 		CGRAY=
 	fi
 	
-	# application's structure
-	# [monopse]
-	# /opt/usrapp/monopse
-
 	# applications's name
 	if [ ${#APNAME} -eq 0 ]
 	then
