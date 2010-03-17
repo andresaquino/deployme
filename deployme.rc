@@ -1,0 +1,29 @@
+# CONF 
+# vim: set ts=3 et sw=3 sts=3 si ai: 
+# 
+# deployme.rc - Do you want to deploy your components automagically?
+# =-=
+# (c) 2010 StrategyLabs!
+# Andres Aquino <andres.aquino@gmail.com>
+#
+
+#
+# home de la aplicacion
+APHOME=/Users/Andres
+APPATH=$APHOME/deploylme
+APLOGD=$APHOME/logs/deployme
+
+# ver el verbose 
+VIEWLOG=true
+
+# correo de los Administradores
+MAILTOADMIN="cesar.aquino@nextel.com.mx"
+
+# Aviso a los radios
+MAILTORADIO="5519419071@msgnextel.com.mx"
+
+# correo para desarrollo
+MAILTODEVELOPER="andres.aquino@gmail.com"
+
+
+#
