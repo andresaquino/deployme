@@ -1,0 +1,126 @@
+DEPLOYME(1)           User Contributed Perl Documentation          DEPLOYME(1)
+
+
+
+NNAAMMEE
+         deployme -- Do you want to deploy your components automagically?
+
+SSYYNNOOPPSSIISS
+         deployme [ --start | --stop ]
+
+         deployme [ --report | --report pendings | --report currents ]
+
+         deployme [ --report id=ID ]
+
+         deployme [ --commit id=ID | --commit pendings ]
+
+         deployme [ --rollback id=ID ]
+
+OOPPTTIIOONNSS
+       ----vveerrssiioonn
+             Shows version.
+
+       ----hheellpp
+             Shows help.
+
+       ----rreeppoorrtt
+             Report.
+             $ deployme --report
+              ID   | RFC       | HOST     | COMPONENT           | FINGER
+              -----+-----------+----------+---------------------+-------------
+              0031 | 1002C0090 | mexhpoe1 | ServiciosOEix.ear   | e2fd..61c4
+              0038 | 1004C0080 | mexhpsdf | PUC.war             | c998..2059
+              ...
+
+             $ deployme --report pendings
+              ID   | RFC       | HOST     | COMPONENT           | FINGER       | STATUS
+              -----+-----------+----------+---------------------+--------------+-------------
+              0040 | 1002C0090 | mexhpssd | ServiciosOEix.ear   | e2fd..61c4   | DEPLOYING
+              0042 | 1004C0080 | mxhpdst2 | PUC.war             | c998..2059   | TOAPPROVE
+              0045 | 1008C0040 | mexhpty2 | CCIe.ear            | c989..ab46   | TOAPPROVE
+              ...
+
+             $ deployme --report currents
+              ID   | RFC       | HOST     | COMPONENT           | FINGER       | STATUS
+              -----+-----------+----------+---------------------+--------------+-------------
+              0050 | 1002C0090 | mexhpddf | ServiciosOEix.ear   | e2fd..61c4   | SUCCESSFULL
+              0053 | 1004C0080 | mxhpsdf3 | PUC.war             | c998..2059   | FAILED
+              ...
+
+             $ deployme --report id=0045
+              Report of commit 0045 order
+              Id           | 0045
+              RFC          | 1002C0090
+              Approved by  | Diego Ubach <diego.ubach@nextel.com.mx>
+              Required by  | Joel Reyes <joel.reyes@nextel.com.mx>
+              -------------+--------------------------------------------------------------------
+              Time         | 20100219-1645
+              Host         | mexhpdds
+              Address      | 10.103.138.157
+              Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
+              Status       | SUCCESS
+              Link         | CCIe.ear -> CCIe.ear.CURRENT
+              -------------+
+              Link         | CCIe.CURRENT
+              Source       | 20091002/CCIe.ear
+              Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
+              Filesize     | 12,600Kb
+              -------------+
+              Link         | CCIe.PREVIOUS
+              Source       | 20090928/CCIe.ear
+              Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
+              Filesize     | 11,469Kb
+
+       ----ccoommmmiitt
+             Commit.
+             $ deployme --commit id=0045
+              Great!, commit over 0045 order in progress.
+              Id           | 0045
+              RFC          | 1002C0090
+              Approved by  | Diego Ubach <diego.ubach@nextel.com.mx>
+              Required by  | Joel Reyes <joel.reyes@nextel.com.mx>
+              -------------+--------------------------------------------------------------------
+              Host         | mexhpdds
+              Address      | 10.103.138.157
+              Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
+              Status       | CCIe.ear -> CCIe.ear.CURRENT
+              -------------+
+              Source       | 20091109/CCIe.ear
+              Fingerprint  | c998aa118ac78a6946d8337e27be2059
+              -------------+
+              Link         | CCIe.CURRENT
+              Source       | 20091002/CCIe.ear
+              Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
+              -------------+
+              Link         | CCIe.PREVIOUS
+              Source       | 20090928/CCIe.ear
+              Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
+
+       ----rroollllbbaacckk
+             Rollback
+
+             $ deployme --rollback id=0046
+              Dawm!, rollback over 0046 order in progress.
+              Id           | 0046
+              RFC          | 1002C0110
+              Approved by  | Daniel Valdivia <daniel.valdivia@nextel.com.mx>
+              Required by  | Israel Barranco <israel.barranco@nextel.com.mx>
+              -------------+--------------------------------------------------------------------
+              Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
+              Status       | CCIe.ear -> CCIe.ear.PREVIOUS
+              -------------+
+              Link         | CCIe.CURRENT
+              Source       | 20091002/CCIe.ear
+              Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
+              -------------+
+              Link         | CCIe.PREVIOUS
+              Source       | 20090928/CCIe.ear
+              Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
+
+              Linux, OSX, HPUX
+
+              Shell, bash, sh
+
+
+
+perl v5.10.0                      2010-03-17                       DEPLOYME(1)
