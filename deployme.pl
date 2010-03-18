@@ -3,7 +3,7 @@
 
 # deployme.pl -- Do you want to deploy your components automagically?
 # ----------------------------------------------------------------------------
-# (c) 2010 StrategiesLabs!
+# (c) 2010 StrategyLabs!
 # Andres Aquino <andres.aquino@gmail.com>
 # 
 
