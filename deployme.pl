@@ -1,8 +1,8 @@
 #!/usr/bin/env perl 
 # vim: set ts=2 sw=2 sts=2 et si ai: 
 
-# deployme.pl -- Do you want to deploy your components automagically?
-# ----------------------------------------------------------------------------
+# deployme.pl - Do you want to deploy your components automagically?
+# =-=
 # (c) 2010 StrategyLabs!
 # Andres Aquino <andres.aquino@gmail.com>
 # 
@@ -143,7 +143,7 @@ __END__
    -----+-----------+----------+---------------------+--------------+-------------
    0040 | 1002C0090 | mexhpssd | ServiciosOEix.ear   | e2fd..61c4   | DEPLOYING
    0042 | 1004C0080 | mxhpdst2 | PUC.war             | c998..2059   | TOAPPROVE
-   0045 | 1008C0040 | mexhpty2 | CCIe.ear            | c989..ab46   | TOAPPROVE
+   0045 | 1008C0040 | mexhpty2 | PICe.ear            | c989..ab46   | TOAPPROVE
    ...
 
   $ deployme --report currents
@@ -157,23 +157,23 @@ __END__
    Report of commit 0045 order
    Id           | 0045
    RFC          | 1002C0090
-   Approved by  | Diego Ubach <diego.ubach@nextel.com.mx>
-   Required by  | Joel Reyes <joel.reyes@nextel.com.mx>
+   Approved by  | Diego Ubach <dubach@nueztel.com>
+   Required by  | Joel Reyes <jreyes@nueztel.com>
    -------------+--------------------------------------------------------------------
    Time         | 20100219-1645
    Host         | mexhpdds
    Address      | 10.103.138.157
    Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
    Status       | SUCCESS
-   Link         | CCIe.ear -> CCIe.ear.CURRENT
+   Link         | PICe.ear -> PICe.ear.CURRENT
    -------------+
-   Link         | CCIe.CURRENT
-   Source       | 20091002/CCIe.ear
+   Link         | PICe.CURRENT
+   Source       | 20091002/PICe.ear
    Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
    Filesize     | 12,600Kb
    -------------+ 
-   Link         | CCIe.PREVIOUS
-   Source       | 20090928/CCIe.ear
+   Link         | PICe.PREVIOUS
+   Source       | 20090928/PICe.ear
    Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
    Filesize     | 11,469Kb
 
@@ -185,23 +185,23 @@ __END__
    Great!, commit over 0045 order in progress.
    Id           | 0045
    RFC          | 1002C0090
-   Approved by  | Diego Ubach <diego.ubach@nextel.com.mx>
-   Required by  | Joel Reyes <joel.reyes@nextel.com.mx>
+   Approved by  | Diego Ubach <dubach@nueztel.com>
+   Required by  | Joel Reyes <jreyes@nueztel.com>
    -------------+--------------------------------------------------------------------
    Host         | mexhpdds
    Address      | 10.103.138.157
    Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
-   Status       | CCIe.ear -> CCIe.ear.CURRENT
+   Status       | PICe.ear -> PICe.ear.CURRENT
    -------------+
-   Source       | 20091109/CCIe.ear
+   Source       | 20091109/PICe.ear
    Fingerprint  | c998aa118ac78a6946d8337e27be2059
    -------------+
-   Link         | CCIe.CURRENT
-   Source       | 20091002/CCIe.ear
+   Link         | PICe.CURRENT
+   Source       | 20091002/PICe.ear
    Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
    -------------+ 
-   Link         | CCIe.PREVIOUS
-   Source       | 20090928/CCIe.ear
+   Link         | PICe.PREVIOUS
+   Source       | 20090928/PICe.ear
    Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
 
 =item B<--rollback>
@@ -212,18 +212,18 @@ __END__
    Dawm!, rollback over 0046 order in progress.
    Id           | 0046
    RFC          | 1002C0110
-   Approved by  | Daniel Valdivia <daniel.valdivia@nextel.com.mx>
-   Required by  | Israel Barranco <israel.barranco@nextel.com.mx>
+   Approved by  | Daniel Valdivia <dvaldivia@nueztel.com>
+   Required by  | Israel Barranco <ibarranco@nueztel.com>
    -------------+--------------------------------------------------------------------
    Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
-   Status       | CCIe.ear -> CCIe.ear.PREVIOUS
+   Status       | PICe.ear -> PICe.ear.PREVIOUS
    -------------+
-   Link         | CCIe.CURRENT
-   Source       | 20091002/CCIe.ear
+   Link         | PICe.CURRENT
+   Source       | 20091002/PICe.ear
    Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
    -------------+ 
-   Link         | CCIe.PREVIOUS
-   Source       | 20090928/CCIe.ear
+   Link         | PICe.PREVIOUS
+   Source       | 20090928/PICe.ear
    Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
 
 

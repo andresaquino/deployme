@@ -1,0 +1,10 @@
+<server>
+	<name>mexhpsda1</name>
+	<address>10.103.138.155</address>
+	<deployment>
+		<name>puc</name>
+		<user>web8sp6</user>
+		<path>/opt/web8sp6/nxtcomp</path>
+		<component>puc.war</component>
+	</deployment>
+</server>

@@ -17,10 +17,7 @@ APLOGD=$APHOME/logs/deployme
 VIEWLOG=true
 
 # correo de los Administradores
-MAILTOADMIN="cesar.aquino@nextel.com.mx"
-
-# Aviso a los radios
-MAILTORADIO="5519419071@msgnextel.com.mx"
+MAILTOADMIN="aquino@nueztel.com"
 
 # correo para desarrollo
 MAILTODEVELOPER="andres.aquino@gmail.com"
