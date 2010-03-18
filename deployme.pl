@@ -8,26 +8,24 @@
 # 
 
 # 
+use warnings;
+use strict;
+
 use IO::File;
 use File::Copy;
 use File::Basename;
 use Time::localtime;
 use Getopt::Long;
 use Pod::Usage;
-use strict;
+use XML::Simple;
+use Data::Dumper;
 
-# options:
-#   start,    start daemon in memory
-#   stop,     stop daemon and all pending deployment process
-#   version,  shows deployme version
-#   report,   report of (all) deployed components 
-#   commit,   execute 
-#   rollback, rollback to previous version
-#   help,     shows help of deployme application
 my %option;
 
 # configuration setup
 my %config;
+
+my $setup;
 
 my ($apname, $appath, $apsuffix);
 
@@ -73,28 +71,62 @@ sub configfile
 configfile();
 
 # read user options
-GetOptions( 'start'         => \$option{'start'},
-            'stop'          => \$option{'stop'},
-            'version'       => \$option{'version'},
-            'report=s@'     => \$option{'report'},
-            'commit=s@'     => \$option{'commit'},
-            'rollback=s@'   => \$option{'rollback'},
-            'manual'        => \$option{'manual'},
-            'help'          => \$option{'help'})
-  or pod2usage(-verbose=>0);
+# options:
+#   start,    start daemon in memory
+#   stop,     stop daemon and all pending deployment process
+#   version,  shows deployme version
+#   report,   report of (all) deployed components 
+#   commit,   execute 
+#   rollback, rollback to previous version
+#   help,     shows help of deployme application
+GetOptions( 
+  'start'         => \$option{'start'},
+  'stop'          => \$option{'stop'},
+  'version'       => \$option{'version'},
+  'status=s'      => \$option{'status'},
+  'report=s'      => \$option{'report'},
+  'commit=s'      => \$option{'commit'},
+  'rollback=s'    => \$option{'rollback'},
+  'manual'        => \$option{'manual'},
+  'help'          => \$option{'help'})
+or pod2usage(-verbose=>0);
 
 pod2usage(-verbose=>1) if ($option{'help'});
 
 pod2usage(-verbose=>2) if ($option{'manual'});
+
+
+#
+# leer el archivo de configuracion en setup/server-deployme.xml
+if ($option{'status'})
+{
+  my $filename;
+  my $filehandler;
+  my $key;
+
+  # get the filename
+  $filename = "setup/".(split('=', $option{'status'}))[-1]."-deployme.xml";
+
+  # and open 
+  $filehandler = XML::Simple->new();
+  $setup = $filehandler->XMLin($filename);
+  #print Dumper($setup);
+  foreach $key (keys (%{$setup->{'component'}}))
+  {
+    printf 'account:'.$setup->{'component'}->{$key}->{'user'}.'@'.$setup->{'address'};
+    print 'file:'.$setup->{'component'}->{$key}->{'file'}.'\n';
+  #  #print $setup->{component}->{$key}->{file}->final . "\n";
+  }
+}
 
 # 
 #
 # mostrar la version de la aplicacion
 if ($option{'version'} )
 {
-   my $appversion="0.2rc";
-   print "deployme $appversion\n";
-   exit(0);
+  my $appversion="0.2rc";
+  print "deployme $appversion\n";
+  exit(0);
 }
 
 
