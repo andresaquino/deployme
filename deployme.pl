@@ -8,8 +8,12 @@
 # 
 
 # 
+package Deployme;
+
 use warnings;
 use strict;
+
+use Log::Log4perl;
 
 use IO::File;
 use File::Copy;
@@ -19,15 +23,20 @@ use Getopt::Long;
 use Pod::Usage;
 use XML::Simple;
 use Data::Dumper;
+use Proc::Daemon;
+use Proc::PID::File;
 
-my %option;
 
 # configuration setup
 my %config;
+my %option;
 
 my $setup;
 
 my ($apname, $appath, $apsuffix);
+
+# log4perl
+my $log;
 
 #
 # FUNCTIONS
@@ -64,10 +73,7 @@ sub configfile
 }
 
 
-#
-# MAIN
-
-# read config
+# initialize environment
 configfile();
 
 # read user options
@@ -91,13 +97,18 @@ GetOptions(
   'help'          => \$option{'help'})
 or pod2usage(-verbose=>0);
 
-pod2usage(-verbose=>1) if ($option{'help'});
+if($option{'help'})
+{
+  pod2usage(-verbose=>1);
+}
 
-pod2usage(-verbose=>2) if ($option{'manual'});
+if($option{'manual'})
+{
+  pod2usage(-verbose=>2);
+}
 
-
-#
 # leer el archivo de configuracion en setup/server-deployme.xml
+#
 if ($option{'status'})
 {
   my $filename;
@@ -119,16 +130,50 @@ if ($option{'status'})
   }
 }
 
-# 
-#
 # mostrar la version de la aplicacion
-if ($option{'version'} )
+#
+if ($option{'version'})
 {
   my $appversion="0.2rc";
   print "deployme $appversion\n";
   exit(0);
 }
 
+
+# initilize environment
+#
+Log::Log4perl->init("deployme-log4.conf");
+$log = Log::Log4perl->get_logger(__PACKAGE__);
+
+# main section
+#
+MAIN:
+{
+  if($option{'start'})
+  {
+    # daemonize
+    $log->debug("Running in background mode");
+    Proc::Daemon::Init();
+
+    # if already running, then exit
+    if(Proc::PID::File->running())
+    {
+      # include log lines
+      $log->debug("Running in forefront mode");
+      exit(0);
+    }
+  }
+  else
+  {
+    $log->debug("Running in foreground mode");
+  }
+  
+  while (1)
+  {
+    $log->info("Send message");
+    sleep(5);
+  }
+}
 
 __END__
 
