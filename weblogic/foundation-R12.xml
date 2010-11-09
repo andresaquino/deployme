@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+
+
+<!--
+*********************************** Accounting Calendar - Periods ********************
+-->
+  <parameter>
+    <module>Accounting Calendar - Periods</module>
+    <title>Calendar name</title>
+    <max_length>15</max_length>
+    <default_value>OctSep</default_value>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+    <lov>
+	<lov_table_name>Accounting Calendar - GL_CALENDAR</lov_table_name>
+	<lov_column_name>Calendar</lov_column_name>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Accounting Calendar - Periods</module>
+    <title>First Ever Opened Period</title>
+    <default_value>Oct-2008</default_value>
+    <max_length>15</max_length>
+    <is_mass_update>true</is_mass_update>
+    <is_mandatory>true</is_mandatory>
+    <update_tables>
+      <table>
+        <table_name>Accounting Setups - Primary Ledger Options</table_name>
+        <columns>
+          <column_name>First Ever Opened Period</column_name>
+        </columns>
+      </table>
+    </update_tables>
+  </parameter>
+  <parameter>
+    <module>Accounting Calendar - Periods</module>
+    <title>From year</title>
+    <max_length>4</max_length>
+    <default_value>2008</default_value>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Accounting Calendar - Periods</module>
+    <title>To year</title>
+    <max_length>4</max_length>
+    <default_value>2009</default_value>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Accounting Calendar - Periods</module>
+    <title>Starting month</title>
+    <default_value>October</default_value>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>January</lov_value>
+      <lov_value>February</lov_value>
+      <lov_value>March</lov_value>
+      <lov_value>April</lov_value>
+      <lov_value>May</lov_value>
+      <lov_value>June</lov_value>
+      <lov_value>July</lov_value>
+      <lov_value>August</lov_value>
+      <lov_value>September</lov_value>
+      <lov_value>October</lov_value>
+      <lov_value>November</lov_value>
+      <lov_value>December</lov_value>
+      <lov_value>January</lov_value>
+    </lov>
+  </parameter>
+
+<!--
+*********************************** Define Value Sets     ********************
+-->
+
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Value Set Name</title>
+    <max_length>60</max_length>
+    <is_mass_update>true</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Description</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>List Type</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>List of Values</lov_value>
+      <lov_value>Long List of Values</lov_value>
+      <lov_value>Poplist</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Security Type</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>No Security</lov_value>
+      <lov_value>Hierarchical Security</lov_value>
+      <lov_value>Non-Hierarchical Security</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Format Type</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>Char</lov_value>
+      <lov_value>Date</lov_value>
+      <lov_value>DateTime</lov_value>
+      <lov_value>Number</lov_value>
+      <lov_value>Standard Date</lov_value>
+      <lov_value>Standard DateTime</lov_value>
+      <lov_value>Time</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Maximum Size</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Precision</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Numbers Only (0-9)</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>Yes</lov_value>
+      <lov_value>No</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Uppercase Only (A-Z)</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>Yes</lov_value>
+      <lov_value>No</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Right-justify and Zero-fill Numbers (0001)</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>Yes</lov_value>
+      <lov_value>No</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Min Value</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Max Value</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Value Validation Type</title>
+    <is_mass_update>false</is_mass_update>
+    <lov>
+      <lov_value>Dependent</lov_value>
+      <lov_value>Independent</lov_value>
+      <lov_value>None</lov_value>
+    </lov>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Independent Value Set Name</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Independent Value Set Description</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Dependent Value Set Name</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Value Sets</module>
+    <title>Dependent Value Set Description</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <sql>
+    <sql_name>Define Value Sets</sql_name>
+    <sql_query>
+SELECT  
+  table1.CN1##Value Set Name##,
+  table1.CN1##Description##,
+  table1.CN1##List Type##, 
+  table1.CN1##Security Type##, 
+  table1.CN1##Format Type##, 
+  table1.CN1##Maximum Size##, 
+  table1.CN1##Precision##, 
+  table1.CN1##Numbers Only (0-9)##, 
+  table1.CN1##Uppercase Only (A-Z)##, 
+  table1.CN1##Right-justify and Zero-fill Numbers (0001)##, 
+  table1.CN1##Min Value##, 
+  table1.CN1##Max Value##, 
+  table1.CN1##Value Validation Type##, 
+
+  table2.CN2##Independent Value Set Name##, 
+  table2.CN2##Independent Value Set Description##, 
+  table2.CN2##Dependent Value Set Name##, 
+  table2.CN2##Dependent Value Set Description##
+FROM    
+  TBLDATA_TL table1
+left join	
+  TBLDATA_TL table2
+ON 
+  table1.CN1##Value Set Name## = table2.CN2##Value Set##
+  and table2.DATAHEADERID=TN2##Dependent Value Set Information - SET##   
+  and table2.DATASTATUS='ENABLE'   
+  and table2.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##'
+WHERE 
+  table1.DATAHEADERID=TN1##Value Sets - SET##   
+  and table1.CN1##Value Validation Type## = 'Independent'
+  and table1.DATASTATUS='ENABLE'   
+  and table1.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+order by table1.DATASEQUENCE
+    </sql_query>
+    <delete_tables>
+		<delete_table_name>
+		 delete from TBLDATA_TL where DATAHEADERID=TN##Value Sets - SET## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-Define-Validation-Sets'
+		 and DC##Value Validation Type## = 'Independent'
+		</delete_table_name>
+		<delete_table_name>
+		 delete from TBLDATA_TL where DATAHEADERID=TN##Dependent Value Set Information - SET## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-Define-Validation-Sets'
+		</delete_table_name>
+    </delete_tables>
+    <sqls_insert>
+		<sql_insert>
+			insert into TN##Value Sets - SET##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Value Set Name##,
+				DC##Description##,
+				DC##List Type##,
+				DC##Security Type##,
+				DC##Format Type##,
+				DC##Maximum Size##,
+				DC##Precision##,
+				DC##Numbers Only (0-9)##,
+				DC##Uppercase Only (A-Z)##,
+				DC##Right-justify and Zero-fill Numbers (0001)##,
+				DC##Min Value##,
+				DC##Max Value##,
+				DC##Value Validation Type##)
+			values(
+				##BASE_COLUMNS##,
+				'GL-Define-Validation-Sets',
+				VALUE##Value Set Name##,
+				VALUE##Description##,
+				VALUE##List Type##,
+				VALUE##Security Type##,
+				VALUE##Format Type##,
+				VALUE##Maximum Size##,
+				VALUE##Precision##,
+				VALUE##Numbers Only (0-9)##,
+				VALUE##Uppercase Only (A-Z)##,
+				VALUE##Right-justify and Zero-fill Numbers (0001)##,
+				VALUE##Min Value##,
+				VALUE##Max Value##,
+				VALUE##Value Validation Type##
+			)
+		</sql_insert>
+		<sql_insert>
+			insert into TN##Dependent Value Set Information - SET##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Value Set##,
+				DC##Independent Value Set Name##,
+				DC##Independent Value Set Description##,
+				DC##Dependent Value Set Name##,
+				DC##Dependent Value Set Description##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-Define-Validation-Sets',
+				VALUE##Value Set Name##,
+				VALUE##Independent Value Set Name##,
+				VALUE##Independent Value Set Description##,
+				VALUE##Dependent Value Set Name##,
+				VALUE##Dependent Value Set Description##
+			)
+		</sql_insert>
+		<sql_insert>
+			insert into TN##RSC-Validate-Value-Sets##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Value Set Name##,
+				DC##Description##,
+				DC##Security Type##,
+				DC##Format Type##,
+				DC##Maximum Size##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-Define-Validation-Sets',
+				VALUE##Value Set Name##,
+				VALUE##Description##,
+				VALUE##Security Type##,
+				VALUE##Format Type##,
+				VALUE##Maximum Size##
+			)
+		</sql_insert>
+    </sqls_insert>	  
+  </sql>
+
+
+
+
+<!--
+*********************************** Define Accounting Structure		********************
+-->
+
+  <parameter>
+    <module>Define Accounting Structure</module>
+    <title>Sequence</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+    <module>Define Accounting Structure</module>
+    <title>Name</title>
+    <max_length>30</max_length>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Value Set</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Length</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Column</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Structures - Code</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Window Prompt</title>
+     <max_length>30</max_length>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+    <parameter>
+     <module>Define Accounting Structure</module>
+     <title>LOV Prompt</title>
+     <max_length>30</max_length>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+<parameter>
+    <module>Define Accounting Structure</module>
+	<title>Display size</title>
+</parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Flexfield Qualifier</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+ <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Enabled</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Segment Default Type</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+    <parameter>
+     <module>Define Accounting Structure</module>
+     <title>Segment Default Value</title>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <sql>
+    <sql_name>Define Accounting Structure</sql_name>
+    <sql_query>
+SELECT  
+  table1.CN1##Number##,
+  table1.CN1##Name##,
+  table1.CN1##Value Set##, 
+  table2.CN2##Maximum Size##, 
+  table1.CN1##Column##, 
+  table1.CN1##Structures - Code##, 
+  table1.CN1##Window Prompt##, 
+  table3.CN3##Promts - List Of Values##, 
+  table3.CN3##Sizes - Display Size##,
+  table4.CN4##Name##, 
+  table4.CN4##Enabled##, 
+  table3.CN3##Validation - Default Type##, 
+  table3.CN3##Validation - Default Value##
+FROM    
+  TBLDATA_TL table1
+left join	 
+  TBLDATA_TL table3
+ON table1.CN1##Name## =  table3.CN3##Segment Summary  - Name## 
+  and table3.DATAHEADERID=TN3##KFF - Segments - SEG##   
+  and table3.DATASTATUS='ENABLE'   
+  and table3.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##'
+left join	 
+  TBLDATA_TL table4
+ON table1.CN1##Name## =  table4.CN4##Segment - Name## 
+  and table4.DATAHEADERID=TN4##KFF - Flexfield Qualifiers - QUALIFIERS##   
+  and table4.DATASTATUS='ENABLE'   
+  and table4.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##'
+left join	
+  TBLDATA_TL table2
+ON 
+  table1.CN1##Value Set## = table2.CN2##Value Set Name##
+  and table2.DATAHEADERID=TN2##Value Sets - SET##   
+  and table2.DATASTATUS='ENABLE'   
+  and table2.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##'
+WHERE 
+  table1.DATAHEADERID=TN1##KFF - Segments Summary - SEG##  
+  and table1.CN1##Flexfield Title## =  'Accounting Flexfield' 
+  and table1.DATASTATUS='ENABLE'   
+  and table1.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+order by table1.DATASEQUENCE
+    </sql_query>
+    <delete_tables>
+		<delete_table_name>
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##KFF - Segments Summary - SEG## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##'
+		 and DC##Flexfield Title## =  'Accounting Flexfield' 
+		 and NAVIGATIONFILTER='GL-KFF-Define-Accounting-Segment' 
+		</delete_table_name>
+		<delete_table_name>
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##KFF - Segments - SEG## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-KFF-Define-Accounting-Segment' 
+		</delete_table_name>
+		<delete_table_name>
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##KFF - Flexfield Qualifiers - QUALIFIERS## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-KFF-Define-Accounting-Segment' 
+		</delete_table_name>
+    </delete_tables>
+    <sqls_insert>
+		<sql_insert>
+			insert into TN##KFF - Segments Summary - SEG##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Application##,
+				DC##Flexfield Title##,
+				DC##Structures - Code##,
+				DC##Number##,
+				DC##Name##,
+				DC##Window Prompt##,
+				DC##Column##,
+				DC##Value Set##,
+				DC##Displayed##,
+				DC##Enabled##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-KFF-Define-Accounting-Segment',
+				'General Ledger',
+				'Accounting Flexfield',
+				VALUE##Structures - Code##,
+				VALUE##Sequence##,
+				VALUE##Name##,
+				VALUE##Window Prompt##,
+				VALUE##Column##,
+				VALUE##Value Set##,
+				'Yes',
+				'Yes'
+			)
+		</sql_insert>
+		<sql_insert>
+			insert into TN##KFF - Segments - SEG##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Application##,
+				DC##Flexfield Title##,
+				DC##Structures - Code##,
+				DC##Segment Summary  - Name##,
+				DC##Segment - Name##,
+				DC##Validation - Value Set##,
+				DC##Validation - Default Type##,
+				DC##Validation - Default Value##,
+				DC##Promts - List Of Values##,
+				DC##Sizes - Display Size##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-KFF-Define-Accounting-Segment',
+				'General Ledger',
+				'Accounting Flexfield',
+				VALUE##Structures - Code##,
+				VALUE##Name##,
+				VALUE##Name##,
+				VALUE##Value Set##,
+				VALUE##Segment Default Type##,
+				VALUE##Segment Default Value##,
+				VALUE##LOV Prompt##,
+				VALUE##Display size##
+			)
+		</sql_insert>
+		<sql_insert>
+			insert into TN##KFF - Flexfield Qualifiers - QUALIFIERS##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Application##,
+				DC##Flexfield Title##,
+				DC##Structures - Code##,
+				DC##Segment - Name##,
+				DC##Name##,
+				DC##Enabled## 
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-KFF-Define-Accounting-Segment',
+				'General Ledger',
+				'Accounting Flexfield',
+				VALUE##Structures - Code##,
+				VALUE##Name##,
+				VALUE##Flexfield Qualifier##,
+				VALUE##Enabled##
+			)
+		</sql_insert>
+    </sqls_insert>	  
+</sql>
+
+
+<!--
+*********************************** Enable Currencies		********************
+-->
+
+  <parameter>
+    <module>Enable Currencies</module>
+    <title>Code</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+    <module>Enable Currencies</module>
+    <title>Name</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Enable Currencies</module>
+     <title>Enabled</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <sql>
+    <sql_name>Enable Currencies</sql_name>
+    <sql_query>
+SELECT  
+  table1.CN1##Code##,
+  table1.CN1##Name##,
+  table1.CN1##Enabled##
+FROM    
+  TBLDATA_TL table1
+WHERE 
+  table1.DATAHEADERID=TN1##Currencies - FND_CURRENCIES##   
+  and table1.DATASTATUS='ENABLE'   
+  and table1.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+  and table1.NAVIGATIONFILTER='GL-Enable-Currencies' 	
+order by table1.DATASEQUENCE
+    </sql_query>	
+    <delete_tables>
+		<delete_table_name>
+		
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##Currencies - FND_CURRENCIES## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-Enable-Currencies'
+
+		</delete_table_name>
+    </delete_tables>
+    <sqls_insert>
+		<sql_insert>
+			insert into TN##Currencies - FND_CURRENCIES##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Code##,
+				DC##Name##,
+				DC##Enabled##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-Enable-Currencies',
+				VALUE##Code##,
+				VALUE##Name##,
+				VALUE##Enabled##
+			)
+		</sql_insert>
+    </sqls_insert>	  
+</sql>
+
+
+
+
+<!--
+*********************************** SEG (Define Accounting Segment Values)   ********************
+-->
+
+  <parameter>
+    <module>Define Accounting Segment Values</module>
+    <title>Segment Values - Structure</title>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+    <module>Define Accounting Segment Values</module>
+    <title>Segment Values - Independent Segment</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+    <module>Define Accounting Segment Values</module>
+    <title>Value</title>
+    <is_mass_update>false</is_mass_update>
+    <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Description</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>MLS Description</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Enabled</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>From</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>To</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Parent</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Group</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Level</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Qualifiers - Allow Budgeting</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Qualifiers - Allow Posting</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+  <parameter>
+     <module>Define Accounting Segment Values</module>
+     <title>Qualifiers - Account Type</title>
+     <is_read_only>true</is_read_only>
+  </parameter>
+
+  <sql>
+    <sql_name>Define Accounting Segment Values</sql_name>
+    <sql_query>
+  SELECT * FROM ( 
+          select 
+	    segValTable.CN2##Segment Values - Structure##,
+          segValTable.CN2##Segment Values - Independent Segment##, 
+          segValTable.CN2##Value##, 
+          segValTable.CN2##Description##,
+	    segValMLS.CN3##Description## MLS_DESC,  
+          segValTable.CN2##Enabled##, 
+          segValTable.CN2##From##, 
+          segValTable.CN2##To##, 
+          segValTable.CN2##Parent##, 
+          segValTable.CN2##Group##, 
+          segValTable.CN2##Level##, 
+          segValDFF.CN1##field1##, 
+          segValDFF.CN1##field2##, 
+          segValDFF.CN1##field3## QUA_ACC
+          from 
+          	tbldata_tl segValTable 
+          left join	 
+          	tbldata_tl segValDFF 
+          on 
+ (segValTable.CN2##Segment Values - Title##=segValDFF.CN1##Segment Values - Title## or (segValTable.CN2##Segment Values - Title## is null and segValDFF.CN1##Segment Values - Title## is null))	AND 
+ (segValTable.CN2##Segment Values - Structure##=segValDFF.CN1##Segment Values - Structure## or (segValTable.CN2##Segment Values - Structure## is null and segValDFF.CN1##Segment Values - Structure## is null))	AND 
+ (segValTable.CN2##Segment Values - Independent Segment##=segValDFF.CN1##Segment Values - Independent Segment## or (segValTable.CN2##Segment Values - Independent Segment## is null and segValDFF.CN1##Segment Values - Independent Segment## is null))	AND 
+ (segValTable.CN2##Segment Values - Dependent Segment##=segValDFF.CN1##Segment Values - Dependent Segment## or (segValTable.CN2##Segment Values - Dependent Segment## is null and segValDFF.CN1##Segment Values - Dependent Segment## is null))	AND 
+ (segValTable.CN2##Segment Values - Independent Value##=segValDFF.CN1##Segment Values - Independent Value## or (segValTable.CN2##Segment Values - Independent Value## is null and segValDFF.CN1##Segment Values - Independent Value## is null))	AND 
+ (segValTable.CN2##Value##=segValDFF.CN1##Value## or (segValTable.CN2##Value## is null and segValDFF.CN1##Value## is null))	AND 
+        segValDFF.DATASTATUS='ENABLE' AND segValDFF.DATAHEADERID=TN1##Segment Values - VALUE - DFF##   
+             and segValDFF.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+	    left join	 
+          	tbldata_tl segValMLS 
+          on 
+ (segValTable.CN2##Segment Values - Title##=segValMLS.CN3##Key Segment Values - Title## or (segValTable.CN2##Segment Values - Title## is null and segValMLS.CN3##Key Segment Values - Title## is null))	AND 
+ (segValTable.CN2##Segment Values - Structure##=segValMLS.CN3##Key Segment Values - Structure## or (segValTable.CN2##Segment Values - Structure## is null and segValMLS.CN3##Key Segment Values - Structure## is null))	AND 
+ (segValTable.CN2##Segment Values - Independent Segment##=segValMLS.CN3##Key Segment Values - Independent Segment## or (segValTable.CN2##Segment Values - Independent Segment## is null and segValMLS.CN3##Key Segment Values - Independent Segment## is null))	AND 
+ (segValTable.CN2##Segment Values - Dependent Segment##=segValMLS.CN3##Key Segment Values - Dependent Segment## or (segValTable.CN2##Segment Values - Dependent Segment## is null and segValMLS.CN3##Key Segment Values - Dependent Segment## is null))	AND 
+ (segValTable.CN2##Segment Values - Independent Value##=segValMLS.CN3##Key Segment Values - Independent Value## or (segValTable.CN2##Segment Values - Independent Value## is null and segValMLS.CN3##Key Segment Values - Independent Value## is null))	AND 
+ (segValTable.CN2##Value##=segValMLS.CN3##Key Value## or (segValTable.CN2##Value## is null and segValMLS.CN3##Key Value## is null))	AND 
+        segValMLS.DATASTATUS='ENABLE' AND segValMLS.DATAHEADERID=TN3##Segment Values - VALUE-Translation##   
+             and segValMLS.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+
+           where 
+            	segValTable.DATASTATUS='ENABLE' 
+	     and segValTable.DATAHEADERID=TN2##Segment Values - VALUE##   
+           and segValTable.DATAFILTERINCLUSIVE ='##INCLUSIVE_FILTER##' 
+           and segValTable.CN2##Segment Values - Title##='Accounting Flexfield'
+           order by segValTable.CN2##Segment Values - Independent Segment##,segValTable.CN2##Value##)
+    </sql_query>	
+    <delete_tables>
+		<delete_table_name>
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##Segment Values - VALUE## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-KFF-Define-Accounting-Segment-Value'
+		</delete_table_name>
+		<delete_table_name>
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##Segment Values - VALUE - DFF## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		 and NAVIGATIONFILTER='GL-KFF-Define-Accounting-Segment-Value'		
+		</delete_table_name>
+		<delete_table_name>
+ 		 delete from TBLDATA_TL where DATAHEADERID=TN##Segment Values - VALUE-Translation## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 		
+		</delete_table_name>
+    </delete_tables>
+    <sqls_insert>
+		<sql_insert>
+			insert into TN##Segment Values - VALUE##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Segment Values - Title##,
+				DC##Segment Values - Structure##,
+				DC##Segment Values - Independent Segment##,
+				DC##Value##,
+    				DC##Description##, 
+          			DC##Enabled##, 
+          			DC##From##, 
+          			DC##To##, 
+          			DC##Parent##, 
+          			DC##Group##, 
+          			DC##Level## 
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-KFF-Define-Accounting-Segment-Value',
+				'Accounting Flexfield',
+				VALUE##Segment Values - Structure##,
+				VALUE##Segment Values - Independent Segment##,
+				VALUE##Value##,
+    				VALUE##Description##, 
+          			VALUE##Enabled##, 
+          			VALUE##From##, 
+          			VALUE##To##, 
+          			VALUE##Parent##, 
+          			VALUE##Group##, 
+          			VALUE##Level## 
+			)
+		</sql_insert>
+		<sql_insert>
+			insert into TN##Segment Values - VALUE - DFF##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Segment Values - Title##,
+				DC##Segment Values - Structure##,
+				DC##Segment Values - Independent Segment##,
+				DC##Value##,
+    				DC##field1##, 
+          			DC##field2##, 
+          			DC##field3##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-KFF-Define-Accounting-Segment-Value',
+				'Accounting Flexfield',
+				VALUE##Segment Values - Structure##,
+				VALUE##Segment Values - Independent Segment##,
+				VALUE##Value##,
+    				VALUE##Qualifiers - Allow Budgeting##, 
+          			VALUE##Qualifiers - Allow Posting##, 
+          			VALUE##Qualifiers - Account Type##
+			)
+		</sql_insert>
+		<sql_insert>
+			insert into TN##Segment Values - VALUE-Translation##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Key Segment Values - Title##,
+				DC##Key Segment Values - Structure##,
+				DC##Key Segment Values - Independent Segment##,
+				DC##Key Value##,
+				DC##Language##,
+    				DC##Description##,
+				DC##CompileOK - Post-Action##
+			)
+			values(
+				##BASE_COLUMNS##,
+				'GL-KFF-Define-Accounting-Segment-Value-MLS',
+				'Accounting Flexfield',
+				VALUE##Segment Values - Structure##,
+				VALUE##Segment Values - Independent Segment##,
+				VALUE##Value##,
+				'Language-to-be-replaced',
+    				VALUE##MLS Description##,
+				VALUE##CompileOK - Post-Action##
+			)
+		</sql_insert>
+    </sqls_insert>	  
+</sql>
+
+<!--
+*********************************** Define Account Aliases ********************
+-->
+
+  <parameter>
+    <module>Define Account Aliases</module>
+    <title>Organization Code</title>
+    <is_read_only>true</is_read_only>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Account Aliases</module>
+    <title>Organization Name</title>
+    <is_read_only>true</is_read_only>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Account Aliases</module>
+    <title>Alias</title>
+    <is_read_only>false</is_read_only>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Account Aliases</module>
+    <title>Description</title>
+    <is_read_only>false</is_read_only>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <parameter>
+    <module>Define Account Aliases</module>
+    <title>Account</title>
+    <is_read_only>false</is_read_only>
+    <is_mass_update>false</is_mass_update>
+  </parameter>
+  <sql>
+    <sql_name>Define Account Aliases</sql_name>
+    <sql_query>
+SELECT  
+  table1.CN1##Organization Code##,
+  table1.CN1##Organization Name##,
+  table1.CN1##Alias##, 
+  table1.CN1##Description##, 
+  table1.CN1##Account##
+FROM    
+  TBLDATA_TL table1
+WHERE 
+  table1.DATAHEADERID=TN1##Account Aliases - ACCOUNT_ALIAS##   
+  and table1.DATASTATUS='ENABLE'   
+  and table1.DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+order by table1.DATASEQUENCE
+    </sql_query>
+    <delete_tables>
+		<delete_table_name>
+		 delete from TBLDATA_TL where DATAHEADERID=TN##Account Aliases - ACCOUNT_ALIAS## 
+		 and DATASTATUS='ENABLE'   
+  		 and DATAFILTERINCLUSIVE='##INCLUSIVE_FILTER##' 
+		</delete_table_name>
+    </delete_tables>
+    <sqls_insert>
+		<sql_insert>
+			insert into TN##Account Aliases - ACCOUNT_ALIAS##(
+				DC##BASE_COLUMNS##,
+				NAVIGATIONFILTER,
+				DC##Organization Code##,
+				DC##Organization Name##,
+				DC##Alias##,
+				DC##Description##,
+				DC##Account##)
+			values(
+				##BASE_COLUMNS##,
+				'INV-Define-Account-Aliases',
+				VALUE##Organization Code##,
+				VALUE##Organization Name##,
+				VALUE##Alias##,
+				VALUE##Description##,
+				VALUE##Account##
+			)
+		</sql_insert>
+    </sqls_insert>	  
+  </sql>
+
+
+</parameters>

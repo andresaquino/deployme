@@ -1,17 +1,32 @@
-v1.01-rev1
-	Implementar funcionalidad basica, definir opciones y funcionamiento en lo general,
-		primer dommy de la aplicación y verificar los alcances de la misma.
+         _          _                    
+      __| |___ _ __| |___ _  _ _ __  ___ 
+     / _` / -_) '_ \ / _ \ || | '  \/ -_)
+     \__,_\___| .__/_\___/\_, |_|_|_\___|
+              |_|         |__/           
 
-v1.01-rev2
-	Implementar archivo de configuracion
+Do you want to deploy your components automagically?
+=-=
 
-v1.01-rev3
-	Implementar demonio, funcionalidad basica
+INFORMATION
+	Usar las banderas correspondientes para indicar que tipo de issue fue implementado
+		 DEFECT         : Report a Software Defect
+		 ENHANCEMENT    : Request for a Enhancement
+		 TASK           : Work item that change code or documentation
+		 REVIEW         : Request for a source code review
+		 OTHER          : Some other kind of issue
 
-v1.01-rev4
-	Implementar commit, funcionalidad basica
+ROADMAP
+	v0.01
+		rev20101102
+			TASK: documentar el HISTORY para validar el ROADMAP necesario.
+			El archivo HISTORY es para documentar todas las ideas e issues que necesitan ser
+         documentados o estan en proceso, o simplemente para que no se me olvide las chingaderas que
+         tengo pendientes por realizar ja ja ja ! =)
+         
+         REVIEW: revision del ROADMAP
 
-v1.01-rev5
-	implementar rollback, funcionalidad basica
 
 
+
+
+# vim: set ts=3 et sw=3 sts=3 si ai tw=100 lbr:

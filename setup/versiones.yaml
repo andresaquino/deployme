@@ -1,0 +1,429 @@
+# vim: set ts=4 et sw=4 sts=4 si ai: 
+
+# versiones.yaml
+# --
+# (c) 2010 
+# Andres Aquino <andres.aquino@gmail.com>
+# All rights reserved.
+# 
+
+VERSIONES:
+    NAME:   Control de Versiones
+    PATH:   VERSIONES/
+
+    NOE:
+        NAME:   NOE - New Order Entry
+        PATH:   NOE/
+
+        3GUAT:
+            NAME:   UAT User Acceptance Testing
+            PATH:   3GUAT
+
+            FillOrderWeb:
+              - NAME:   Fill Order Web
+                FILE:   FillOrderWeb.war
+                IPAD:   10.103.12.138
+                HOST:   mxhprxt   
+                USER:   usrapp
+                PATH:   /opt/apps/nxtcomps/
+
+            ServiciosOE:
+                NAME:   Servicios OE
+                FILE:   ServiciosOE.ear
+                IPAD:   10.103.12.138
+                HOST:   mxhprxt   
+                USER:   usrapp
+                PATH:   /opt/apps/nxtcomps/
+        
+        UAT:
+            NAME:   UAT User Acceptance Testing
+            PATH:   UAT
+
+            APPLICATION:
+                FILLORDER:
+                    NAME:   Fill Order Web
+                    FILE:   FillOrderWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar  
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+                SERVICIOSOE:
+                    NAME:   Servicios OE
+                    FILE:   ServiciosOE.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar   
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+                MktIX:
+                    NAME:   MktIX
+                    FILE:   MktIX.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+              NOEREPORTS:
+                    NAME:   NOE Reports
+                    FILE:   NOEReports.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+                SCV:
+                    NAME:   SCV
+                    FILE:   scv.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+             SERVICIOSBC:
+                    NAME:   Servicios BC
+                    FILE:   ServiciosBC.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+             PROVIDERWEB:
+                    NAME:   Provider Web
+                    FILE:   ProviderWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+              RTWEB:
+                    NAME:   RTWeb
+                    FILE:   RTWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+                NOEMOVIL:
+                    NAME:   NOE MOVIL
+                    FILE:   NOEMovil.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+           NOEMOVILSERVICES:
+                    NAME:   NOE Movil Services
+                    FILE:   NOEMovilServices.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/NOE
+
+           MARSERVICIOSPREPAGO:
+                    NAME:   MAR Servicios Prepago
+                    FILE:   MARServiciosPrepago.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100827-4/MARServiciosPrepago.war
+
+                MARSERVICES:
+                    NAME:   MAR Services
+                    FILE:   MARServices.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100827-4/MARServices.war
+
+            NOEPLUMADIGITAL:
+                    NAME:   NOEM Pluma Digital
+                    FILE:   NOEMPlumaDigital.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100824_2/NOEMPlumaDigital.war
+
+              CARTARTWEB:
+                    NAME:   Carta RTWeb
+                    FILE:   CartaRTFWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100727/CartaRTFWeb.war
+
+              SIVEN:
+                    NAME:   Siven
+                    FILE:   siven.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100623/siven.war
+
+             SERVICIOSTDC:
+                    NAME:   Servicios TDC
+                    FILE:   ServiciosTDC.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100616-3/ServiciosTDC.war
+
+                  CPCWEB:
+                    NAME:   CPC Web
+                    FILE:   CPCWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100608-2/CPCWeb.war
+
+                 NEXINDE:
+                    NAME:   Nexinde
+                    FILE:   NexInde.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100604-2/NexInde.war
+
+             SIORENAUTWEB:
+                    NAME:   SIO Renaut Web
+                    FILE:   SIORenautWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100528-1/SIORenautWeb.war
+
+                 MARWEB:
+                    NAME:   MAR Web
+                    FILE:   MARWeb.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100506/MARWeb.war
+
+            SERVICIOSASP:
+                    NAME:   Servicios ASP
+                    FILE:   ServiciosASP.war
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/nxtcomp/20100205-1/ServiciosASP.war
+
+         MARCONCILIACIONDIESTEL:
+                    NAME:   MAR Conciliacion Diestel
+                    FILE:   MARConciliacionDiestel.jar
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/batch/mar/MARConciliacionDiestel/MARConciliacionDiestel.jar
+
+              MARREPORTS:
+                    NAME:   MAR Reports
+                    FILE:   MARReports.jar
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/batch/mar/MARReports/MARReports.jar
+
+            MARSMSCLIENT:
+                    NAME:   MAR SMS Client
+                    FILE:   MARSMSClient.jar
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/batch/mar/MARSMSBatch/MARSMSClient.jar
+
+               BATCHRTDC:
+                    NAME:   RTDC Batch
+                    FILE:   BatchRTDC.jar
+                    IP:     10.103.12.119
+                    HOST:   mxhpdmar
+                    USER:   usrapp
+                    PATH:   /opt/apps/batch/rtdc/CompSvcBatchTDC/BatchRTDC.jar
+
+              ACTIVACIONES:
+                    NAME:   BATCH ACTIVACIONES
+                    FILE:   IxActivation.jar
+                    IP:     10.103.12.143
+                    HOST:   mxhpuoe1
+                    USER:   activnoe
+                    PATH:   /home/activnoe/activation/lib/IxActivation.jar.20100521
+
+              BATCHNOE:
+                    NAME:   BATCH NOE
+                    FILE:   BatchNOE.jar
+                    IP:     10.103.12.143
+                    HOST:   mxhpuoe1
+                    USER:   activnoe
+                    PATH:   /opt/apps/batch/CompSvcBatchIXSOEX/BatchNOE.jar.201010211126
+ 
+              BATCHNEXINDE:
+                    NAME:   BATCH NEXINDE
+                    FILE:   NexindeBatchs.jar
+                    IP:     10.103.12.143
+                    HOST:   mxhpuoe1
+                    USER:   activnoe
+                    PATH:   /opt/apps/NexindeBatch_UAT10/NexindeBatchs.jar
+
+                ACTIVACIONES:
+                    NAME:   Batch Activationes
+                    FILE:   activations.war
+                    IP:     10.103.12.129
+                    HOST:   mxhphnmh
+                    USER:   batch
+                    PATH:   /opt/apps/nxtcomps/
+   
+    CCI:
+        NAME:   CCI Customer Care Information
+        PATH:   CCI/
+
+        UAT:
+            NAME:   UAT - User Acceptance Testing
+            PATH:   UAT
+
+            SERVICIOSCCI:
+                NAME:   Servicios CCI
+                FILE:   SCCIIx.ear
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/web8sp6/bea/user_projects/nxtcomp/201010211835/SCCIIx.ear
+            
+            CCI:
+                NAME:   CCI
+                FILE:   SCCIIx.ear
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/apps/nxtcomp/wlicciix/201010221358/cci.ear
+
+            CCIE:
+                NAME:   CCIE
+                FILE:   ccie.ear
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/web8sp6/bea/user_projects/nxtcomp/wlicciix/ccie.20090707/ccie.ear
+            
+         CCISCHEDULER:
+                NAME:   CCI Scheduler
+                FILE:   ccieScheduler.ear
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/apps/nxtcomp/wlicciix/201010151400/ccieScheduler.ear
+
+         SERVICIOSOE:
+                NAME:   Servicios OE
+                FILE:   ServiciosOEIx.ear
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/web8sp6/bea/user_projects/nxtcomp/wlicciix/20100308/ServiciosOEIx.ear
+
+            BATCHCCI:
+                NAME:   Batch CCI
+                FILE:   SCCIIx.ear
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/web8sp6/bea/user_projects/nxtcomp/201010211835/SCCIIx.ear
+
+    SISCOB:
+        NAME:   SISCOB Sistema de Cobranza
+        PATH:   SISCOB/
+
+        UAT:
+            NAME:   UAT - User Acceptance Testing
+            PATH:   UAT
+
+          SISCOB:
+                NAME:   Siscob
+                FILE:   siscob.war
+                IP:     10.103.12.144
+                HOST:   mxhpusc2
+                USER:   weblogi9
+                PATH:   /opt/apps/nxtcomp/siscob/201010201217/siscob.war
+
+     SISCOBIIIREPORTES:
+                NAME:   Siscob III Reportes
+                FILE:   SiscobIIIReportes.war
+                IP:     10.103.12.144
+                HOST:   mxhpusc2
+                USER:   weblogi9
+                PATH:   /opt/apps/nxtcomp/siscob/201010201756/SiscobIIIReportes.war
+
+     SISCOBDESP:
+                NAME:   Siscob Desp
+                FILE:   SiscobDesp.war
+                IP:     10.103.12.144
+                HOST:   mxhpusc2
+                USER:   weblogi9
+                PATH:   /opt/apps/nxtcomp/siscob/201010211316/SiscobDesp.war
+
+     COBRANZADESPACHOS:
+                NAME:   Cobranza Despachos
+                FILE:   CobranzaDespachos.war
+                IP:     10.103.12.144
+                HOST:   mxhpusc2
+                USER:   weblogi9
+                PATH:   /opt/apps/nxtcomp/siscob/201010201756/CobranzaDespachos.war
+
+
+    POS:
+        NAME:   POS Point Of Sale
+        PATH:   pos/
+
+        UAT:
+            NAME:   UAT - User Acceptance Testing
+            PATH:   UAT
+
+            PVNEXTEL:
+                NAME:   Punto de Venta Nextel
+                FILE:   PV_Nextel.war
+                IP:     10.103.12.144
+                HOST:   mxhpusc2
+                USER:   weblogi9
+                PATH:   /opt/apps/nxtcomp/PDV/201010191304/PV_Nextel.war
+
+
+  PREPAGO:
+        NAME:   PREPAGO
+        PATH:   Prepago/
+
+        UAT:
+            NAME:   UAT - User Acceptance Testing
+            PATH:   UAT
+
+            GUIPREPAGO:
+                NAME:   Gui Prepago
+                FILE:   GuiPrepago.war
+                IP:     10.103.12.144
+                HOST:   mxhpusc2
+                USER:   weblogi9
+                PATH:   /opt/apps/nxtcomp/svmprepa01/201010181356/GuiPrepago.war
+    
+  PUC:
+        NAME:   Pantalla Unica de Consulta
+        PATH:   PUC/
+
+        UAT:
+            NAME:   UAT - User Acceptance Testing
+            PATH:   UAT
+
+            PUC:
+                NAME:   Puc
+                FILE:   puc.war
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/apps/nxtcomp/wlspuix/20100727/puc.war
+  
+            PUCWService:
+                NAME:   Web Service Puc
+                FILE:   PUCWService.war
+                IP:     10.103.12.142
+                HOST:   mxhpucci
+                USER:   web8sp6
+                PATH:   /opt/web8sp6/bea/user_projects/nxtcomp/wlspucix/20090811/PUCWService.war
+
+           

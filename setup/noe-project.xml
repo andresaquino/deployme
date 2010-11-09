@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<deployme
+		name="NOE"
+		user="usrapp"
+		ipaddress="10.103.138.150"
+		sourcepath="/opt/apps/nxtcomp/wl10mp3" 
+		destinationpath="/opt/apps/nxtcomp/wl10mp3" >
+			<component 
+				name="Activation"
+				file="AdminActivation.war" />
+			<component 
+				name="CPC"
+				file="CPCWeb.war" />
+			<component 
+				name="CartaRTF"
+				file="CartaRTFWeb.war" />
+			<component 
+				name="FillOrder"
+				file="FillOrderWeb.war" />
+</deployme>
