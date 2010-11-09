@@ -17,19 +17,5 @@ GIT
 http://gitorious.org/deployme.git
 
 BUGTRACKER
-<<<<<<< HEAD
-http://akin0.lighthouseapp.com/projects/43684-starter/overview
-
-TESTED USING
-
-  * WebLogic 10
-  * WebLogic 9.2
-  * WebLogic 8.1
-  * Tomcat 5
-  * Tomcat 6
-=======
->>>>>>> v1.02-201011.09
-
-#Este es otro cambio
 
 # vim: set ts=3 et sw=3 sts=3 si ai tw=100 lbr:
