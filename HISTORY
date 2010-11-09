@@ -8,18 +8,26 @@ Do you want to deploy your components automagically?
 =-=
 
 INFORMATION
-	Usar las banderas correspondientes para indicar que tipo de issue fue implementado
-		 DEFECT         : Report a Software Defect
-		 ENHANCEMENT    : Request for a Enhancement
-		 TASK           : Work item that change code or documentation
-		 REVIEW         : Request for a source code review
-		 OTHER          : Some other kind of issue
+   Usar las banderas correspondientes para indicar que tipo de issue fue implementado
+       DEFECT         : Report a Software Defect
+       ENHANCEMENT    : Request for a Enhancement
+       TASK           : Work item that change code or documentation
+       REVIEW         : Request for a source code review
+       OTHER          : Some other kind of issue
 
 ROADMAP
-	v0.01
-		rev20101102
-			TASK: documentar el HISTORY para validar el ROADMAP necesario.
-			El archivo HISTORY es para documentar todas las ideas e issues que necesitan ser
+   v1.02
+      201011.09
+         TODO: definicion de la aplicacion, todo y nada se ha dicho
+         Pues eso, solo sirve para desplegar componentes en WebLogic, JBoss y Tomcat. Tiene la misma
+         funcionalidad que Capistrano.
+         Vamos a quitar todas las chingaderitas que no funcionan para dejar una sola cosa, porque ya
+         este directorio es un desmadre...
+
+   v0.01
+      201011.02
+         TASK: documentar el HISTORY para validar el ROADMAP necesario.
+         El archivo HISTORY es para documentar todas las ideas e issues que necesitan ser
          documentados o estan en proceso, o simplemente para que no se me olvide las chingaderas que
          tengo pendientes por realizar ja ja ja ! =)
          
