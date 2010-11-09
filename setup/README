@@ -1,0 +1,57 @@
+#
+# Documentation
+
+YAML Definition
+==
+setup/VERSIONES/3GUAT/NOE/201010122235
+ENVIROMENT: Control de Cambios
+
+PROJECT:
+   - NAME:  NOE
+     DESCRIPTION: New Order Entry
+
+
+receipt:     Oz-Ware Purchase Invoice
+date:        2007-08-06
+customer:
+    given:   Dorothy
+        family:  Gale
+
+        items:
+            - part_no:   A4786
+                  descrip:   Water Bucket (Filled)
+                        price:     1.47
+                              quantity:  4
+
+                                  - part_no:   E1628
+                                        descrip:   High Heeled "Ruby" Slippers
+                                              price:     100.27
+                                                    quantity:  1
+
+
+
+   ENVIRONMENT
+      APPLICATION
+
+CONTROL_CAMBIOS
+   3GDEV
+      ATM
+         DOCUMENTACION
+         COMPONENTES
+         SERVIDORES
+      BATCHCCI
+         DOCUMENTACION
+         COMPONENTES
+         SERVIDORES
+            IP
+            USUARIO
+...
+
+CONTROL_VERSIONES
+   ATM
+   BATCHCCI
+
+
+
+
+# vim: set ts=3 et sw=3 sts=3 si ai: 

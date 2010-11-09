@@ -1,0 +1,86 @@
+# vim: set ts=4 et sw=4 sts=4 si ai: 
+
+# versiones.yaml
+# --
+# (c) 2010 Nextel de Mexico
+# Andres Aquino <andres.aquino@gmail.com>
+# All rights reserved.
+# 
+
+CAMBIOS:
+    NAME:   Control de Cambios
+    PATH:   CAMBIOS/
+
+    NOE:
+        NAME:   NOE - New Order Entry
+        PATH:   NOE/
+
+        3GUAT:
+            NAME:   UAT User Acceptance Testing
+            PATH:   3GUAT
+            IP:     10.103.138.159
+            HOST:   cositahp
+            USER:   usrapp
+            PATH:   /opt/apps/nxtcomps/
+
+            COMPONENT:
+              - NAME:   Fill Order Web
+                FILE:   FillOrderWeb.war
+                IP:   10.103.12.138
+                HOST:   mxhprxt   
+                USER:   usrapp
+                PATH:   /opt/apps/nxtcomps/
+
+              - NAME:   Servicios OE
+                FILE:   ServiciosOE.ear
+        
+        UAT:
+            NAME:   UAT User Acceptance Testing
+            PATH:   UAT
+
+            COMPONENT:
+              - NAME:   Fill Order Web
+                FILE:   FillOrderWeb.war
+                IPAD:   10.103.12.138
+                HOST:   mxhprxt   
+                USER:   usrapp
+                PATH:   /opt/apps/nxtcomps/
+
+              - NAME:   Servicios OE
+                FILE:   ServiciosOE.ear
+                IPAD:   10.103.12.138
+                HOST:   mxhprxt   
+                USER:   usrapp
+                PATH:   /opt/apps/nxtcomps/
+
+              - NAME:   Batch Activationes
+                FILE:   activations.war
+                IPAD:   10.103.12.129
+                HOST:   mxhphnmh
+                USER:   batch
+                PATH:   /opt/apps/nxtcomps/
+   
+    CCI:
+        NAME:   CCI Customer Care Information
+        PATH:   CCI/
+
+        UAT:
+            NAME:   UAT - User Acceptance Testing
+            PATH:   UAT
+
+            COMPONENT:
+              - NAME:   Servicios CCI
+                FILE:   ServiciosCCI.ear
+                IPAD:   10.103.12.129
+                HOST:   mxhphnmh
+                USER:   batch
+                PATH:   /opt/apps/nxtcomps/
+
+              - NAME:   Batch de Activaciones
+                FILE:   activations.zip
+                IPAD:   10.103.12.129
+                HOST:   mxhphnmh
+                USER:   batch
+                PATH:   /opt/apps/nxtcomps/
+
+
