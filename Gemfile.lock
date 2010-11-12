@@ -2,9 +2,23 @@ GEM
   remote: http://rubygems.org/
   specs:
     OptionParser (0.5.1)
+    highline (1.6.1)
+    log4r (1.1.9)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.0.23)
+    net-ssh-shell (0.1.0)
+      net-ssh (>= 2.0.9)
+    termios (0.9.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  OptionParser
+  OptionParser (~> 0.5.1)
+  highline
+  log4r (~> 1.1.9)
+  net-scp (~> 1.0.4)
+  net-ssh (~> 2.0.23)
+  net-ssh-shell (~> 0.1.0)
+  termios
