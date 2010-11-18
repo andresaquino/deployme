@@ -1,0 +1,103 @@
+CommandLine::OptionParser
+=========================
+Author: Jim Freeze
+Copyright 2005 Jim Freeze
+
+ABOUT 
+=====
+CommandLine::OptionParser is part of the CommandLine suite of
+tools and is used for command line parsing. The command line
+parser suite consists of classes CommandLine::Option, 
+CommandLine::OptionData and CommandLine::Application.
+
+The parser supports POSIX, Gnu and XTools style parsing options. 
+It also provides flexibility to support <em>non standard</em>
+options. For example:
+
+POSIX
+=====
+OptionParser.new Option.new(:posix, :names => "-f")
+
+Gnu
+===
+OptionParser.new Option.new(:names => %w[--file -f])
+
+XTools
+======
+OptionParser.new Option.new(:names => "-file")
+
+User
+====
+OptionParser.new(Option.new(
+   :names => %w(--file -file --files -files -f),
+   :arg_arity => [1,-1],
+   :arg_description => "file1 [file2, ...]"))
+
+This last option prints:
+
+ OPTIONS
+
+     --file,-file,--files,-files,-f file1 [file2, ...]
+
+
+HISTORY
+=======
+After poking around in a few corporations, it was evident that
+option parsing was not well understood. Therefore, many inhouse
+tools were built that did not conform to any of the POSIX, Gnu or XTools
+option styles. CommandLine::OptionParser was developed so that
+new applications could be written that conformed to accepted standards,
+but non-standard option configurations could be handled as well
+to support legacy interfaces.
+
+More information and usage scenarios on OptionParser can be found at:
+    http://rubyforge.org/projects/optionparser/
+
+Download & Installation
+=======================
+
+Homepage: http://rubyforge.org/projects/optionparser/
+Download: http://rubyforge.org/frs/?group_id=632&release_id=2345
+
+Dependencies:
+* None
+
+Currently optionparser is only available as a rubygem.
+
+Via RubyGems 
+  $ gem install optionparser
+
+All feedback is appreciated!
+
+Installations not available yet
+===============================
+# not in RPA yet
+Via RPA 
+  $ rpa install optionparser
+  
+# this either
+The do-it-yourself way 
+  $ ruby setup.rb config
+  $ ruby setup.rb setup
+  $ ruby setup.rb install
+  
+# nor this
+The simplified do-it-yourself way 
+  $ rake install
+
+
+RELEASE NOTES
+=============
+
+---------------------------------------------------------------------
+0.5.1  06/17/2005
+* Contains all planned features except CVS like command handling
+* Fixed loading path using gems. Is now loaded by:
+   require 'rubygems'
+   require 'commandline/optionparser'
+* Updated documentation
+
+---------------------------------------------------------------------
+0.5.0  06/07/2005  
+* First public release
+

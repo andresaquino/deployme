@@ -1,0 +1,35 @@
+         _          _                    
+      __| |___ _ __| |___ _  _ _ __  ___ 
+     / _` / -_) '_ \ / _ \ || | '  \/ -_)
+     \__,_\___| .__/_\___/\_, |_|_|_\___|
+              |_|         |__/           
+
+Do you want to deploy your components automagically?
+=-=
+
+ideas
+- se necesita una aplicacion que este actualizando los ambientes, un tipo rsync
+  pero usando SSH y el MD5 para verificar la huella de cada uno de los archivos.
+  Leer el directorio destino y verificar que existe, despues compararlo contra lo
+  que existe en el directorio origen y hacer las actualizaciones correspondientes.
+
+- despues ejecutar ese proceso por cada uno de los servidores, para mantener las
+  copias actualizadas, pero ejecutarlo cada determinado tiempo. Supongo se
+  pueden mantener los canales abiertos y estar ejecutando el sync en cada server
+  para validar cuando cambian y hacer las actualizaciones correspondientes.
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: set ts=3 et sw=3 sts=3 si ai tw=80 lbr:
