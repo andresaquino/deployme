@@ -1,18 +1,22 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby 
+# vim: set ts=2 sw=2 sts=2 et si ai: 
+  
+# server.rb
+# =
+#	Copyright (c) 2010
+#	Andres Aquino <andres.aquino@gmail.com>
+#
 
-# readconfig.rb -- put here a short description 
-# ----------------------------------------------------------------------------
-# (c) 2010
-# Andres Aquino <andres.aquino@gmail.com>
-# All rights reserved.
-# 
+class Server
+  attr_accessor :ipaddress
+  attr_accessor :user
 
-class ReadConfig
-  attr_reader :setup
+  def initialize(ipaddress = nil, user = nil)
+    @ipaddress = ipaddress
+    @user = user
+  end
 
-  def initialize(project)
-  end  
+  def connect
+
 end
 
-
-# vim: set ts=2 sw=2 sts=2 et si ai: 
