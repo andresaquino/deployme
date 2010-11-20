@@ -13,4 +13,5 @@ gem 'robustthread', '0.5.2'
 gem 'rufus-scheduler', '2.0.7'
 gem 'tzinfo', '0.3.23' 
 gem 'daemons'
+gem 'hpricot'
 

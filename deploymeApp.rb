@@ -3,41 +3,19 @@
   
 # deploymeApp.rb
 # =
-#	Copyright (c) 2010
-#	Andres Aquino <andres.aquino@gmail.com>
+# Copyright (c) 2010
+# Andres Aquino <andres.aquino@gmail.com>
 #
 
 # bundler gems encapsulated
 require 'rubygems'
+require 'yaml'
 require 'bundler/setup'
 require 'log4r'
-require 'net/ssh'
-require 'net/scp'
-require 'libs/server'
+require 'log4r/yamlconfigurator'
 
-uat = {}
-uat['mxhpasa1'] = { 'user' => 'batch', 'host' => '10.103.138.159'}
-uat['mexhplwx'] = { 'user' => 'devapp', 'host' => '10.103.12.151'}
-uat['mxhpdmar'] = { 'user' => 'usrapp', 'host' => '10.103.12.119'}
-uat['mxhpucci'] = { 'user' => 'web8sp6', 'host' => '10.103.12.142'}
-uat['mxhpusc2'] = { 'user' => 'weblogi9', 'host' => '10.103.12.144'}
+log4rconf = YAML::load_file('log4r.conf')
 
-server = Server.new()
-server.uid = 'CCI-BTCH-UAT'
-server.family = 'CCI'
-server.application = 'BATCH'
-server.environment = 'UAT'
-server.user = 'devapp'
-server.host = '10.103.12.119'
-server.path = '/opt/apps/nxtcomp/cci'
-
-servers
-
-environment = ['DEV', 'UAT', 'CAP', 'PROD']
-servers.each do |server|
-  server.sync() if server.has_environment?(environment[1])
-
-end
 
 
 server = new Server

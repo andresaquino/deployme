@@ -10,8 +10,18 @@ Do you want to deploy your components automagically?
 Deployme es solo para desplegar componentes de manera automagica en los servidores de aplicaciones,
 no tiene otra funcionalidad.
 
-De puede derivar la parte WEB para administracion y control de desplegados, asi como la parte de
+Se puede derivar la parte WEB para administracion y control de desplegados, asi como la parte de
 automatizacion de creacion de dominios
+
+Deploy your applications in a automatically manner.
+In example, in our real world, your steps are:
+1. Verify your component
+2. Copy to the server or upload directly using a console
+3. Stop the application server
+4. Clear cache or something like that
+5. Start the application server
+6. Enjoy or hate your users :)
+but, what if you could do it automagically…?
 
 GIT
 http://gitorious.org/deployme.git
