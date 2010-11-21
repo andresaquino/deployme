@@ -16,7 +16,6 @@ class Server
     @user = user
   end
 
-  def connect
 
 end
 

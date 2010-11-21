@@ -1,0 +1,73 @@
+# YAML Conf 
+# vim: set ts=2 et sw=2 sts=2 si ai: 
+# 
+# log4r.yml
+# ----------------------------------------------------------------------------
+# (c) 2010
+# Andres Aquino <andres.aquino@gmail.com>
+# All rights reserved.
+
+log4r_config:
+
+# define all pre config ...
+  pre_config:
+    global:
+      level: ALL
+    root:
+      level: ALL
+    parameters:
+      - name: MYHOME
+        value: '/Users/andresaquino/logs/'
+
+  # define all loggers ...
+  loggers:
+    - name:       deployme
+      level:      ALL
+      additive:   'false'
+      trace:      'false'
+      outputters:
+        - mfile
+
+    - name:       yourlogger
+      level:      INFO
+      outputters: 
+        - stdout
+        - mfile
+        - bysize
+
+  # define all outputters (incl. formatters)
+  outputters:
+    - type:         DateFileOutputter
+      name:         mfile
+      level:        ALL
+      trunc:        'true'
+      dirname:      'logs'
+      date_pattern: '%Y%m%d'
+      formatter:
+        pattern:    '%d [%c] %6l : %m%n'
+        type:       PatternFormatter
+
+    - type:         StdoutOutputter
+      name:         stdout
+      level:        INFO
+      only_at:
+        - WARN
+        - FATAL
+      formatter:
+        type:         PatternFormatter
+        pattern:      '%d %m '
+
+    - type:         RollingFileOutputter
+      name:         bysize
+      level:        ALL
+      filename:     '#{MYHOME}/test.log'
+      maxsize:     '10000'
+      maxtime:      '60'
+      trunc:        'false'
+      level:        ALL
+      formatter:
+        pattern:    '%d [%c] %6l : %m%n'
+        type:       PatternFormatter
+
+
+
