@@ -16,6 +16,7 @@ require 'bundler/setup'
 require 'log4r'
 require 'log4r/yamlconfigurator'
 require 'log4r/outputter/datefileoutputter'
+require 'log4r/outputter/rollingfileoutputter'
 
 include Log4r
 
@@ -24,7 +25,7 @@ logger = Log4r::YamlConfigurator
 logger['logpath'] = '.'
 logger.load_yaml_file('log4r.yml')
 
-@log = Log4r::Logger['deployme']
+@log = Log4r::Logger['yourlogger']
 @log.debug('Estamos revisando la documentacion')
 @log.info('Estamos revisando la documentacion')
 @log.warn('Estamos revisando la documentacion')

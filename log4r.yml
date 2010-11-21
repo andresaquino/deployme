@@ -13,32 +13,61 @@ log4r_config:
   pre_config:
     global:
       level: ALL
-    root  :
+    root:
       level: ALL
+    parameters:
+      - name: MYHOME
+        value: '/Users/andresaquino/logs/'
 
   # define all loggers ...
   loggers:
-    - name      : deployme
-      level     : ALL
-      additive  : 'false'
-      trace     : 'false'
+    - name:       deployme
+      level:      ALL
+      additive:   'false'
+      trace:      'false'
       outputters:
         - mfile
 
-    - name      : yourlogger
-      level     : INFO
+    - name:       yourlogger
+      level:      INFO
       outputters: 
+        - stdout
         - mfile
+        - bysize
 
   # define all outputters (incl. formatters)
   outputters:
-    - type        : DateFileOutputter
-      name        : mfile
-      level       : ALL
-      trunc       : 'true'
-      dirname     : 'logs'
+    - type:         DateFileOutputter
+      name:         mfile
+      level:        ALL
+      trunc:        'true'
+      dirname:      'logs'
       date_pattern: '%Y%m%d'
-      formatter   :
-        pattern     : '%d [%c] %6l : %m%n'
-        type        : PatternFormatter
+      formatter:
+        pattern:    '%d [%c] %6l : %m%n'
+        type:       PatternFormatter
+
+    - type:         StdoutOutputter
+      name:         stdout
+      level:        INFO
+      only_at:
+        - WARN
+        - FATAL
+      formatter:
+        type:         PatternFormatter
+        pattern:      '%d %m '
+
+    - type:         RollingFileOutputter
+      name:         bysize
+      level:        ALL
+      filename:     '#{MYHOME}/test.log'
+      maxsize:     '10000'
+      maxtime:      '60'
+      trunc:        'false'
+      level:        ALL
+      formatter:
+        pattern:    '%d [%c] %6l : %m%n'
+        type:       PatternFormatter
+
+
 
