@@ -1,31 +1,192 @@
-         _          _                    
-      __| |___ _ __| |___ _  _ _ __  ___ 
-     / _` / -_) '_ \ / _ \ || | '  \/ -_)
-     \__,_\___| .__/_\___/\_, |_|_|_\___|
-              |_|         |__/           
+      _          _                      
+   __| |___ _ __| |___ _  _   _ __  ___ 
+  / _` / -_) '_ \ / _ \ || |_| '  \/ -_)
+  \__,_\___| .__/_\___/\_, (_)_|_|_\___|
+           |_|         |__/             
 
 Do you want to deploy your components automagically?
-=-=
+-
 
-Deployme es solo para desplegar componentes de manera automagica en los servidores de aplicaciones,
-no tiene otra funcionalidad.
+INFORMATION
+   Usar las banderas correspondientes para indicar que tipo de issue fue implementado
+       DEFECT         : Report a Software Defect
+       ENHANCEMENT    : Request for a Enhancement
+       TASK           : Work item that change code or documentation
+       REVIEW         : Request for a source code review
+       OTHER          : Some other kind of issue
 
-Se puede derivar la parte WEB para administracion y control de desplegados, asi como la parte de
-automatizacion de creacion de dominios
+
+
+
+
+Deployme es solo para desplegar componentes de manera automagica 
+en los servidores de aplicaciones, no tiene otra funcionalidad.
+
+Se puede derivar la parte WEB para administracion y control de 
+desplegados, asi como la parte de automatizacion de creacion de dominios
 
 Deploy your applications in a automatically manner.
 In example, in our real world, your steps are:
-1. Verify your component
-2. Copy to the server or upload directly using a console
-3. Stop the application server
-4. Clear cache or something like that
-5. Start the application server
-6. Enjoy or hate your users :)
+ 1. Verify your component
+ 2. Copy to the server or upload directly using a console
+ 3. Stop the application server
+ 4. Clear cache or something like that
+ 5. Start the application server
+ 6. Enjoy or hate your users :)
 but, what if you could do it automagically…?
 
-GIT
-http://gitorious.org/deployme.git
 
-BUGTRACKER
+Funcionalidad
+-
+deployme -- Do you want to deploy your components automagically?
 
-# vim: set ts=3 et sw=3 sts=3 si ai tw=100 lbr:
+Usage:
+   deployme [ --start | --stop ]
+
+   deployme [ --report | --report pendings | --report currents ]
+
+   deployme [ --report id=ID ]
+
+   deployme [ --commit id=ID | --commit pendings ]
+
+   deployme [ --rollback id=ID ]
+
+Options:
+    --version
+          Duh!
+          Shows version.
+
+    --help
+          Once again, duh!
+          Shows help.
+
+    --report
+          Bueno, ya saben; un reporte donde se muestre el estado general de las 
+          liberaciones, que incluya la información mas relevante para nosotros, 
+          de tal manera que podamos entregar la informacion lo mas rápido posible 
+          (o para que dejen de estar chingando).
+          
+          $ deployme --report
+           ID   | RFC       | HOST     | COMPONENT           | FINGER
+           -----+-----------+----------+---------------------+-------------
+           0031 | 1002C0090 | mexhpoe1 | ServiciosOEix.ear   | e2fd..61c4
+           0038 | 1004C0080 | mexhpsdf | PUC.war             | c998..2059
+           ...
+
+          $ deployme --report pendings
+            Pues aqui los deploys pendientes de realizar, la idea es que CC o CV 
+            suba los componentes a la 22.44 en una estructura definida por nosotros, 
+            de tal manera que el deployme identifique cuando exista un nuevo componente 
+            y lo coloque en cola de espera, ya sea que por configuracion se le indique 
+            que en cuanto tenga el componente lo suba y haga el correspondiente desplegado
+            o se espere a que el administrador de la aprobacion (por aquello de que 
+            quieran subirse el ego con "here my balls are bigger than yours")
+           ID   | RFC       | HOST     | COMPONENT           | FINGER       | STATUS
+           -----+-----------+----------+---------------------+--------------+-------------
+           0040 | 1002C0090 | mexhpssd | ServiciosOEix.ear   | e2fd..61c4   | DEPLOYING
+           0042 | 1004C0080 | mxhpdst2 | PUC.war             | c998..2059   | TOAPPROVE
+           0045 | 1008C0040 | mexhpty2 | CCIe.ear            | c989..ab46   | TOAPPROVE
+           ...
+
+          $ deployme --report currents
+            "here my balls are most bigger than yours" je je je, perdon estaba pensando
+            en mis pelotas, bueno la idea es que aqui se muestren los deploymens autorizados 
+            (tanto exitosos como fallidos), ya saben la evidencia (aunque me estoy dando 
+            cuenta que falta agregar la fecha y la hora. damn!)
+           ID   | RFC       | HOST     | COMPONENT           | FINGER       | STATUS
+           -----+-----------+----------+---------------------+--------------+-------------
+           0050 | 1002C0090 | mexhpddf | ServiciosOEix.ear   | e2fd..61c4   | SUCCESSFULL
+           0053 | 1004C0080 | mxhpsdf3 | PUC.war             | c998..2059   | FAILED
+           ...
+
+          Pues el reporte de ejecucion del deployment con el ID 45, cuando, donde, quien,
+          las huellas(firmas caray) host, ip, etc.. etc...
+ 
+          $ deployme --report id=0045
+            Report of commit 0045 order
+              Id           | 0045
+              RFC          | 1002C0090
+              Approved by  | Diego Ubach <diego.ubach@nextel.com.mx>
+              Required by  | Joel Reyes <joel.reyes@nextel.com.mx>
+              -------------+--------------------------------------------------------------------
+              Time         | 20100219-1645
+              Host         | mexhpdds
+              Address      | 10.103.138.157
+              Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
+              Status       | SUCCESS
+              Link         | CCIe.ear -> CCIe.ear.CURRENT
+              -------------+
+              Link         | CCIe.CURRENT
+              Source       | 20091002/CCIe.ear
+              Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
+              Filesize     | 12,600Kb
+              -------------+ 
+              Link         | CCIe.PREVIOUS
+              Source       | 20090928/CCIe.ear
+              Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
+              Filesize     | 11,469Kb
+
+    --commit
+          Aqui la idea es lanzar un deploy que ya se encuentre en estado de aprobacion,
+          podemos dejarlo en automatico indicandolo en el archivo de configuracion o 
+          que se espere a la aprobacion del administrador, por aquello de las flys.
+          $ deployme --commit id=0045
+           Great!, commit over 0045 order in progress.
+           Id           | 0045
+           RFC          | 1002C0090
+           Approved by  | Diego Ubach <diego.ubach@nextel.com.mx>
+           Required by  | Joel Reyes <joel.reyes@nextel.com.mx>
+           -------------+--------------------------------------------------------------------
+           Host         | mexhpdds
+           Address      | 10.103.138.157
+           Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
+           Status       | CCIe.ear -> CCIe.ear.CURRENT
+           -------------+
+           Source       | 20091109/CCIe.ear
+           Fingerprint  | c998aa118ac78a6946d8337e27be2059
+           -------------+
+           Link         | CCIe.CURRENT
+           Source       | 20091002/CCIe.ear
+           Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
+           -------------+ 
+           Link         | CCIe.PREVIOUS
+           Source       | 20090928/CCIe.ear
+           Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
+
+    --rollback
+          Bueno, y como no puede faltar el consabido ROLLBACK, suave verdad...!
+          (estoy pensando que tambien estaría poner una opcion que sea WORKAROUND, muy 
+          en el mood a la ñiñesca pero eso si sería tener unas tinyballs, entonces mejor
+          olvidenlo )
+          $ deployme --rollback id=0046
+           Dawm!, rollback over 0046 order in progress.
+           Id           | 0046
+           RFC          | 1002C0110
+           Approved by  | Daniel Valdivia <daniel.valdivia@nextel.com.mx>
+           Required by  | Israel Barranco <israel.barranco@nextel.com.mx>
+           -------------+--------------------------------------------------------------------
+           Workdir      | /opt/web8sp6/bea/user_projects/nxtcomp/wlinxt
+           Status       | CCIe.ear -> CCIe.ear.PREVIOUS
+           -------------+
+           Link         | CCIe.CURRENT
+           Source       | 20091002/CCIe.ear
+           Fingerprint  | e2fd5b9cb3a5678848e9ade4ecff61c4
+           -------------+ 
+           Link         | CCIe.PREVIOUS
+           Source       | 20090928/CCIe.ear
+           Fingerprint  | 21b3dfe72ce3b7f4f4a81aed9ff0ca6c
+
+La mecanica a grandes rasgos:
+1. Tomar los componentes
+2. Registrar las firmas
+3. Subir los componentes al servidor correspondiente (indicado en archivo de configuracion)
+4. Respaldar el config.xml, modificar para registrar el nuevo componente (solo la linea del
+componente)
+5. reiniciar el Administrador para que tome el cambio
+6. Dar de baja los correspondientes manejados
+7. Eliminar el cache (si esto lo leyera la maye o la becerrine, estarian con la tipica: "ya ven, se
+los dije"...)
+8. Subir el manejado para que actualice el componente
+9. Rezar al SanPasten para que no valga madre el ambiente
+
+# vim: set ts=3 sw=3 sts=3 et si ai tw=100 lbr:

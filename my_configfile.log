@@ -1,6 +1,0 @@
-=>[ WARN 2010-11-20 14:50:44] MainLogger: warning [test-log4r.rb:25]
-=>[DEBUG 2010-11-20 14:50:44] MainLogger: debug [test-log4r.rb:26]
-=>[ WARN 2010-11-20 15:07:36] MainLogger: warning [test-log4r-xml.rb:25]
-=>[DEBUG 2010-11-20 15:07:36] MainLogger: debug [test-log4r-xml.rb:26]
-=>[ WARN 2010-11-20 15:07:39] MainLogger: warning [test-log4r-yml.rb:25]
-=>[DEBUG 2010-11-20 15:07:39] MainLogger: debug [test-log4r-yml.rb:26]
